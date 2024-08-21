@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerInput input;
     InputAction action;
+    [SerializeField] float playerSpeed = 5;
     void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -24,6 +25,6 @@ public class PlayerMovement : MonoBehaviour
     public void MovePlayer()
     {
         Vector2 direction = action.ReadValue<Vector2>();
-        transform.position += new Vector3(direction.x, 0, direction.y)  *Time.deltaTime;
+        transform.position += new Vector3(direction.x, 0, direction.y)  * playerSpeed* Time.deltaTime;
     }
 }
