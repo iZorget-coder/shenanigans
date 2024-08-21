@@ -10,10 +10,13 @@ public class PlayerMovement : MonoBehaviour
     public PlayerInput input;
     InputAction action;
     [SerializeField] float playerSpeed = 5;
+    public Vector2 playerRotation;
+    GameObject playerCamera;
     void Start()
     {
         input = GetComponent<PlayerInput>();
         action = input.actions.FindAction("Move");
+        playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
     }
 
@@ -25,6 +28,13 @@ public class PlayerMovement : MonoBehaviour
     public void MovePlayer()
     {
         Vector2 direction = action.ReadValue<Vector2>();
-        transform.position += new Vector3(direction.x, 0, direction.y)  * playerSpeed * Time.deltaTime;
+        transform.position += new Vector3(direction.x, 0, direction.y) * playerSpeed * Time.deltaTime;
+
+        playerRotation.x +=  Input.GetAxis("Mouse Y");
+        playerRotation.y += Input.GetAxis("Mouse X");
+        transform.localRotation = Quaternion.Euler(0, playerRotation.y, 0);
+        playerCamera.transform.localRotation = Quaternion.Euler(-playerRotation.x, playerRotation.y, 0);
+
+
     }
 }
