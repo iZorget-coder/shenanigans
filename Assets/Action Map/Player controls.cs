@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-
 public partial class @Playercontrols: IInputActionCollection2, IDisposable
 {
     public InputActionAsset asset { get; }
@@ -30,7 +29,7 @@ public partial class @Playercontrols: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""99e08a27-05ad-4a20-a0c6-2747b3d19772"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
