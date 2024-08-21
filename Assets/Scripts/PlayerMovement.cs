@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void MovePlayer()
     {
-        Vector2 direction = (action.ReadValue<Vector2>()).;
+        Vector2 direction = (action.ReadValue<Vector2>());
         transform.position += new Vector3(direction.x, 0, direction.y) * playerSpeed * Time.deltaTime;
 
         playerRotation.x += Input.GetAxis("Mouse Y"); ;
