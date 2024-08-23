@@ -46,7 +46,7 @@ public class ThirdPersonMovenent : MonoBehaviour
         playerRotation.y += Input.GetAxis("Mouse X");
 
         transform.localRotation = Quaternion.Euler(0, playerRotation.y, 0);
-        cam.transform.localRotation = Quaternion.Euler(playerRotation.x, playerRotation.y, 0);
+        Camera.main.transform.localRotation = Quaternion.Euler(playerRotation.x, playerRotation.y, 0);
 
 
 
