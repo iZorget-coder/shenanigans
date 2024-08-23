@@ -1,44 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class ThirdPersonMovenent : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Player movement")]
 
-    public PlayerInput input;
-    InputAction action;
-    [SerializeField] float playerSpeed = 5f;
+    private Rigidbody rb;
+    public Transform orientation;
+    public float moveSpeed;
+
+    public GameObject cam;
+    float horizontalInput;
+    float verticalInput;
     public Vector2 playerRotation;
-    GameObject playerCamera;
-    public float mouseSensitivity = 5f;
-    void Start()
 
-        ///
+
+    Vector3 moveDirection;
+
+
+     void Start()
     {
-        input = GetComponent<PlayerInput>();
-        action = input.actions.FindAction("Move");
-        playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
-
-       Cursor.lockState = CursorLockMode.Locked;  
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+    }
+    private void Update()
+    {
+        PlayerInput();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayerInput()
     {
-        MovePlayer();
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
     }
+    public void FixedUpdate()
+    {
+            MovePlayer();
+    }
+
     public void MovePlayer()
     {
-        Vector2 direction = (action.ReadValue<Vector2>());
-        transform.position += new Vector3(direction.x, 0, direction.y) * playerSpeed * Time.deltaTime;
+        playerRotation.x += Input.GetAxis("Mouse Y");
+        playerRotation.y += Input.GetAxis("Mouse X");
 
-        playerRotation.x += Input.GetAxis("Mouse Y"); ;
-        playerRotation.y += Input.GetAxis("Mouse X") ;
         transform.localRotation = Quaternion.Euler(0, playerRotation.y, 0);
-        playerCamera.transform.localRotation = Quaternion.Euler( playerRotation.x, playerRotation.y, 0);
+      
 
 
+
+        Quaternion camRotation = Quaternion.Euler(0f, cam.transform.eulerAngles.y, 0f);
+        rb.MoveRotation(camRotation);
+
+        // Calculate movement direction based on input
+        Vector3 moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        moveDirection.Normalize(); // Normalize to ensure consistent speed in all directions
+
+        // Apply force to move the player
+        rb.AddForce(moveDirection * moveSpeed * 10f);
     }
+
+
+
 }
