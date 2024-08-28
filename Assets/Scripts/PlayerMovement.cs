@@ -7,7 +7,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Player Movement")]
     private Rigidbody rb;
     public Transform orientation;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 15f;
 
     public GameObject cam;
     private float horizontalInput;
