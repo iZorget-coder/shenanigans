@@ -18,12 +18,13 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public Animator animator;
     public BoxCollider playerBox;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         Cursor.lockState = CursorLockMode.Locked;
-        playerBox = GetComponent<BoxCollider>();    
+        playerBox = GetComponent<BoxCollider>();
     }
 
     void Update()
@@ -56,32 +57,24 @@ public class ThirdPersonMovement : MonoBehaviour
         transform.localRotation = Quaternion.Euler(0f, playerRotation.y, 0f);
 
         // Rotate the camera (X-axis only)
-        if (playerRotation.x < 90f)
-        {
-            cam.transform.localRotation = Quaternion.Euler(playerRotation.x, 0f, 0f);
-        }
-        
+        cam.transform.localRotation = Quaternion.Euler(playerRotation.x, 0f, 0f);
     }
 
     void MovePlayer()
     {
         animator.SetFloat("speed", verticalInput);
-        if(verticalInput != 0f)
-        {
-            playerBox.center = new Vector3(playerBox.center.x, 1.690556f, playerBox.center.z);
-        } else
-        {
-            playerBox.center = new Vector3(playerBox.center.x, 2.23f,playerBox.center.z);
-        }
-      
 
         // Calculate movement direction based on input
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        
+
         moveDirection.Normalize(); // Normalize to ensure consistent speed in all directions
 
-        // Set the player's velocity based on input
-        rb.velocity = moveDirection * moveSpeed * Time.fixedDeltaTime * 100f;
-       
+        // Maintain the player's current vertical velocity to avoid upward/downward movement issues
+        Vector3 velocity = rb.velocity;
+        velocity = moveDirection * moveSpeed * Time.fixedDeltaTime * 100f;
+        velocity.y = rb.velocity.y; // Preserve the vertical velocity (gravity)
+
+        // Apply the velocity to the rigidbody
+        rb.velocity = velocity;
     }
 }
