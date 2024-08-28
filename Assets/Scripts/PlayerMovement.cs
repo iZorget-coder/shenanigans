@@ -68,10 +68,10 @@ public class ThirdPersonMovement : MonoBehaviour
         animator.SetFloat("speed", verticalInput);
         if(verticalInput != 0f)
         {
-            playerBox.size = new Vector3(playerBox.size.x, 1.690556f, playerBox.size.z);
+            playerBox.center = new Vector3(playerBox.center.x, 1.690556f, playerBox.center.z);
         } else
         {
-            playerBox.size = new Vector3(playerBox.size.x, 2.23f,playerBox.size.z);
+            playerBox.center = new Vector3(playerBox.center.x, 2.23f,playerBox.center.z);
         }
       
 
