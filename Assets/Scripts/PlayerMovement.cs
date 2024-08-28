@@ -7,7 +7,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Player Movement")]
     private Rigidbody rb;
     public Transform orientation;
-    public float moveSpeed = 15f;
+    public float moveSpeed = 200f;
 
     public GameObject cam;
     private float horizontalInput;
@@ -16,11 +16,14 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private Vector3 moveDirection;
 
+    public Animator animator;
+    public BoxCollider playerBox;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         Cursor.lockState = CursorLockMode.Locked;
+        playerBox = GetComponent<BoxCollider>();    
     }
 
     void Update()
@@ -53,16 +56,32 @@ public class ThirdPersonMovement : MonoBehaviour
         transform.localRotation = Quaternion.Euler(0f, playerRotation.y, 0f);
 
         // Rotate the camera (X-axis only)
-        cam.transform.localRotation = Quaternion.Euler(playerRotation.x, 0f, 0f);
+        if (playerRotation.x < 90f)
+        {
+            cam.transform.localRotation = Quaternion.Euler(playerRotation.x, 0f, 0f);
+        }
+        
     }
 
     void MovePlayer()
     {
+        animator.SetFloat("speed", verticalInput);
+        if(verticalInput != 0f)
+        {
+            playerBox.size = new Vector3(playerBox.size.x, 1.690556f, playerBox.size.z);
+        } else
+        {
+            playerBox.size = new Vector3(playerBox.size.x, 2.23f,playerBox.size.z);
+        }
+      
+
         // Calculate movement direction based on input
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        
         moveDirection.Normalize(); // Normalize to ensure consistent speed in all directions
 
         // Set the player's velocity based on input
         rb.velocity = moveDirection * moveSpeed * Time.fixedDeltaTime * 100f;
+       
     }
 }

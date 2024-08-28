@@ -312,9 +312,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 778559851}
-  moveSpeed: 5
+  moveSpeed: 7
   cam: {fileID: 330585543}
   playerRotation: {x: 0, y: 0}
+  animator: {fileID: 1486668020}
+  playerBox: {fileID: 0}
 --- !u!114 &339638572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +395,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 3.52, z: 0.7731862}
-  m_Center: {x: 0, y: 1.6905558, z: 0.1134069}
+  m_Center: {x: 0, y: 2.23, z: 0.1134069}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
