@@ -7,7 +7,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Player Movement")]
     private Rigidbody rb;
     public Transform orientation;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 20f;
 
     public GameObject cam;
     private float horizontalInput;
@@ -63,7 +63,16 @@ public class ThirdPersonMovement : MonoBehaviour
     void MovePlayer()
     {
         animator.SetFloat("speed", verticalInput);
-
+        if(verticalInput == -1)
+        {
+            animator.SetBool("walking back", true);
+            moveSpeed = 5f;
+           
+        } else
+        {
+            animator.SetBool("walking back", false) ;
+            moveSpeed = 20f;
+        }
         // Calculate movement direction based on input
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
