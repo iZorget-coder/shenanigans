@@ -7,7 +7,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Player Movement")]
     private Rigidbody rb;
     public Transform orientation;
-    public float moveSpeed = 200f;
+    public float moveSpeed = 5f;
 
     public GameObject cam;
     private float horizontalInput;
@@ -23,7 +23,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked; 
         playerBox = GetComponent<BoxCollider>();
     }
 
@@ -51,7 +51,7 @@ public class ThirdPersonMovement : MonoBehaviour
         playerRotation.y += Input.GetAxis("Mouse X");
 
         // Clamp the vertical rotation (X-axis)
-        playerRotation.x = Mathf.Clamp(playerRotation.x, -90f, 90f);
+        playerRotation.x = Mathf.Clamp(playerRotation.x, -50f, 50f);
 
         // Rotate the player (Y-axis)
         transform.localRotation = Quaternion.Euler(0f, playerRotation.y, 0f);
