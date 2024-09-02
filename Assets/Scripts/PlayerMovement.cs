@@ -63,15 +63,39 @@ public class ThirdPersonMovement : MonoBehaviour
     void MovePlayer()
     {
         animator.SetFloat("speed", verticalInput);
-        if(verticalInput == -1)
+        moveSpeed = 20f;
+        if (verticalInput == -1)
         {
             animator.SetBool("walking back", true);
-            moveSpeed = 5f;
-           
-        } else
+            moveSpeed = 10f;
+
+        }
+        else
         {
-            animator.SetBool("walking back", false) ;
-            moveSpeed = 20f;
+            animator.SetBool("walking back", false);
+          
+        }
+        if (horizontalInput == 1)
+        {
+            animator.SetBool("strafing right", true);
+            moveSpeed = 10f;
+
+        }
+        else
+        {
+            animator.SetBool("strafing right", false);
+            
+        }
+        if (horizontalInput == -1)
+        {
+            animator.SetBool("strafing left", true);
+            moveSpeed = 10f;
+
+        }
+        else
+        {
+            animator.SetBool("strafing left", false);
+          
         }
         // Calculate movement direction based on input
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
