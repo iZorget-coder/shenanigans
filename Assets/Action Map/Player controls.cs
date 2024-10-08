@@ -29,12 +29,39 @@ public partial class @Playercontrols: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""99e08a27-05ad-4a20-a0c6-2747b3d19772"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pickup"",
+                    ""type"": ""Button"",
+                    ""id"": ""6df43352-c412-40f2-99e4-79fb4de68f49"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""b930630c-735f-49be-99e3-e4cc4812c582"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Drop "",
+                    ""type"": ""Button"",
+                    ""id"": ""11bee6d2-ae0b-4c6c-8f49-cdb021504bfb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +119,94 @@ public partial class @Playercontrols: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""bd21e187-05f0-4393-a5e6-7bf2e25057ab"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""ec477710-76df-42d1-b0f7-8c01e374777d"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""54ef4ebf-1be8-4336-b413-a23b6c2c05c3"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""3cd4cd16-1e39-4c2f-b921-4a0a4f18485d"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9e7f5399-5755-4c3d-bbb7-faa8fc82d8f0"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3db26c4f-4e1f-4a99-a400-2982187eb238"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd9774c7-18fe-4cce-b1b7-8dd8a87eefa0"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2b55955-24f2-4aff-bdf8-c5d9c67108bf"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop "",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +216,9 @@ public partial class @Playercontrols: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
+        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Drop = m_Player.FindAction("Drop ", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +281,17 @@ public partial class @Playercontrols: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_Pickup;
+    private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Drop;
     public struct PlayerActions
     {
         private @Playercontrols m_Wrapper;
         public PlayerActions(@Playercontrols wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
+        public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Drop => m_Wrapper.m_Player_Drop;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +304,15 @@ public partial class @Playercontrols: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Pickup.started += instance.OnPickup;
+            @Pickup.performed += instance.OnPickup;
+            @Pickup.canceled += instance.OnPickup;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @Drop.started += instance.OnDrop;
+            @Drop.performed += instance.OnDrop;
+            @Drop.canceled += instance.OnDrop;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -187,6 +320,15 @@ public partial class @Playercontrols: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Pickup.started -= instance.OnPickup;
+            @Pickup.performed -= instance.OnPickup;
+            @Pickup.canceled -= instance.OnPickup;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @Drop.started -= instance.OnDrop;
+            @Drop.performed -= instance.OnDrop;
+            @Drop.canceled -= instance.OnDrop;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -207,5 +349,8 @@ public partial class @Playercontrols: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnPickup(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
     }
 }
