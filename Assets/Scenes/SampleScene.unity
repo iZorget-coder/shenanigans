@@ -31242,33 +31242,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 1986637320}
   m_VersionIndex: 21698
   m_IsSelectable: 1
-  m_SelectedFaces: 550000005600000057000000
-  m_SelectedEdges:
-  - a: 341
-    b: 340
-  - a: 340
-    b: 342
-  - a: 342
-    b: 343
-  - a: 343
-    b: 341
-  - a: 345
-    b: 344
-  - a: 344
-    b: 346
-  - a: 346
-    b: 347
-  - a: 347
-    b: 345
-  - a: 349
-    b: 348
-  - a: 348
-    b: 350
-  - a: 350
-    b: 351
-  - a: 351
-    b: 349
-  m_SelectedVertices: 560100005501000054010000570100005a01000059010000580100005b0100005e0100005d0100005c0100005f010000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!4 &62255933
 Transform:
   m_ObjectHideFlags: 0
@@ -31488,7 +31464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 778559851}
-  moveSpeed: 20
+  moveSpeed: 10
   cam: {fileID: 330585543}
   playerRotation: {x: 0, y: 0}
   animator: {fileID: 1486668020}
@@ -32346,10 +32322,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7068960615321520195, guid: 58724455b295a484e9ca993baafacc64,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 58724455b295a484e9ca993baafacc64,
         type: 3}
       propertyPath: m_Name
       value: eve idle animation
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 58724455b295a484e9ca993baafacc64,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653583297145843626, guid: 58724455b295a484e9ca993baafacc64,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

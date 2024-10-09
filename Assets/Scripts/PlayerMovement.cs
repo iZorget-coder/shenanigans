@@ -7,7 +7,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Player Movement")]
     private Rigidbody rb;
     public Transform orientation;
-    public float moveSpeed = 20f;
+    public float moveSpeed = 5f;
 
     public GameObject cam;
     private float horizontalInput;
@@ -63,7 +63,7 @@ public class ThirdPersonMovement : MonoBehaviour
     void MovePlayer()
     {
         animator.SetFloat("speed", verticalInput);
-        moveSpeed = 20f;
+        moveSpeed = 5f;
         if (verticalInput == -1)
         {
             animator.SetBool("walking back", true);
@@ -78,7 +78,7 @@ public class ThirdPersonMovement : MonoBehaviour
         if (horizontalInput == 1)
         {
             animator.SetBool("strafing right", true);
-            moveSpeed = 10f;
+            moveSpeed = 5f;
 
         }
         else
@@ -89,7 +89,7 @@ public class ThirdPersonMovement : MonoBehaviour
         if (horizontalInput == -1)
         {
             animator.SetBool("strafing left", true);
-            moveSpeed = 10f;
+            moveSpeed = 5f;
 
         }
         else
