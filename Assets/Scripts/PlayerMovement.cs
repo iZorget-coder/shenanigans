@@ -19,18 +19,49 @@ public class ThirdPersonMovement : MonoBehaviour
     public Animator animator;
     public BoxCollider playerBox;
 
+    [Header("Audio")]
+    public AudioClip walkSound;
+    public AudioClip breathingSound;
+    private AudioSource walkAudioSource;
+    private AudioSource breathingAudioSource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.lockState = CursorLockMode.Locked;
         playerBox = GetComponent<BoxCollider>();
+
+        // Initialize walk sound
+        walkAudioSource = gameObject.AddComponent<AudioSource>();
+        walkAudioSource.clip = walkSound;
+        walkAudioSource.loop = true;
+        walkAudioSource.volume = 0.7f;
+
+        // Initialize breathing sound
+        breathingAudioSource = gameObject.AddComponent<AudioSource>();
+        breathingAudioSource.clip = breathingSound;
+        breathingAudioSource.loop = true;
+        breathingAudioSource.volume = 0.7f; // Set a constant breathing volume
+        breathingAudioSource.Play(); // Start breathing sound immediately
     }
 
     void Update()
     {
         PlayerInput();
         RotatePlayer();
+
+        // Play or stop walk audio based on movement
+        if (verticalInput != 0 || horizontalInput != 0)
+        {
+            if (!walkAudioSource.isPlaying)
+                walkAudioSource.Play();
+        }
+        else
+        {
+            if (walkAudioSource.isPlaying)
+                walkAudioSource.Stop();
+        }
     }
 
     void PlayerInput()
@@ -67,39 +98,33 @@ public class ThirdPersonMovement : MonoBehaviour
         if (verticalInput == -1)
         {
             animator.SetBool("walking back", true);
-            moveSpeed = 10f;
-
+            moveSpeed = 5f;
         }
         else
         {
             animator.SetBool("walking back", false);
-          
         }
         if (horizontalInput == 1)
         {
             animator.SetBool("strafing right", true);
             moveSpeed = 5f;
-
         }
         else
         {
             animator.SetBool("strafing right", false);
-            
         }
         if (horizontalInput == -1)
         {
             animator.SetBool("strafing left", true);
             moveSpeed = 5f;
-
         }
         else
         {
             animator.SetBool("strafing left", false);
-          
         }
+
         // Calculate movement direction based on input
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
         moveDirection.Normalize(); // Normalize to ensure consistent speed in all directions
 
         // Maintain the player's current vertical velocity to avoid upward/downward movement issues
