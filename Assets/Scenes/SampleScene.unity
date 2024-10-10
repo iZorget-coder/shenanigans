@@ -39115,6 +39115,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &699445762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4820021534528649406, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3806559199363064982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &730219752
 GameObject:
   m_ObjectHideFlags: 0
@@ -41192,6 +41204,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 2764136779064380578, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
+        type: 3}
+      propertyPath: doorOpen
+      value: 
+      objectReference: {fileID: 699445762}
     - target: {fileID: 2764136779064380578, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
         type: 3}
       propertyPath: externalAnimator
