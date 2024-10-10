@@ -36,13 +36,13 @@ public class ThirdPersonMovement : MonoBehaviour
         walkAudioSource = gameObject.AddComponent<AudioSource>();
         walkAudioSource.clip = walkSound;
         walkAudioSource.loop = true;
-        walkAudioSource.volume = 0.7f;
+        walkAudioSource.volume = 1f;
 
         // Initialize breathing sound
         breathingAudioSource = gameObject.AddComponent<AudioSource>();
         breathingAudioSource.clip = breathingSound;
         breathingAudioSource.loop = true;
-        breathingAudioSource.volume = 0.7f; // Set a constant breathing volume
+        breathingAudioSource.volume = 1f; // Set a constant breathing volume
         breathingAudioSource.Play(); // Start breathing sound immediately
     }
 
