@@ -40530,6 +40530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1881372435}
+  - component: {fileID: 1881372436}
   m_Layer: 0
   m_Name: door pivot
   m_TagString: Untagged
@@ -40553,6 +40554,27 @@ Transform:
   - {fileID: 1408486829}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1881372436
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881372434}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c5a7ff9a52005d642b97b58446bf6ad5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1885707795
 GameObject:
   m_ObjectHideFlags: 0
@@ -41170,6 +41192,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 2764136779064380578, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
+        type: 3}
+      propertyPath: externalAnimator
+      value: 
+      objectReference: {fileID: 1881372436}
     - target: {fileID: 3974445872132118863, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -41300,8 +41327,7 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5110606806603356496, guid: 04d4cf0f2cff1e84f807f612a2275fe2, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
