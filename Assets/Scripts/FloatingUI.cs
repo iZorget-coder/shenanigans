@@ -18,6 +18,11 @@ public class FloatingText : MonoBehaviour
     public TextMeshProUGUI doorOpen;
     private bool isDoorOpen = false;
 
+    // Add the audio components for door sounds
+    public AudioSource audioSource;
+    public AudioClip doorOpenSound;
+    public AudioClip doorCloseSound;
+
     void Start()
     {
         mainCam = Camera.main.transform;
@@ -34,6 +39,11 @@ public class FloatingText : MonoBehaviour
         if (externalAnimator == null)
         {
             Debug.LogError("No Animator assigned to FloatingText script.");
+        }
+
+        if (audioSource == null)
+        {
+            Debug.LogError("No AudioSource assigned to FloatingText script.");
         }
 
         UpdateDoorStatusText();
@@ -58,12 +68,24 @@ public class FloatingText : MonoBehaviour
                     externalAnimator.SetBool("isOpening", true);
                     externalAnimator.SetBool("isClosing", false);
                     isDoorOpen = true;
+
+                    // Play the door open sound
+                    if (doorOpenSound != null && audioSource != null)
+                    {
+                        audioSource.PlayOneShot(doorOpenSound);
+                    }
                 }
                 else
                 {
                     externalAnimator.SetBool("isOpening", false);
                     externalAnimator.SetBool("isClosing", true);
                     isDoorOpen = false;
+
+                    // Play the door close sound
+                    if (doorCloseSound != null && audioSource != null)
+                    {
+                        audioSource.PlayOneShot(doorCloseSound);
+                    }
                 }
 
                 UpdateDoorStatusText();
