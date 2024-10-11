@@ -41087,6 +41087,8 @@ MonoBehaviour:
   audioSource: {fileID: 908333122}
   doorOpenSound: {fileID: 8300000, guid: ee8923ea55cd4bb4baed776fa7fc8f41, type: 3}
   doorCloseSound: {fileID: 8300000, guid: a33c2175a81707a4ebbc344bb048ea0c, type: 3}
+  drawerOpenSound: {fileID: 8300000, guid: e67f6d3b73b104f469c18391f471714a, type: 3}
+  drawerCloseSound: {fileID: 8300000, guid: f14eac839107d6144b57befdf6cc6c42, type: 3}
 --- !u!114 &908333124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43212,6 +43214,8 @@ MonoBehaviour:
   audioSource: {fileID: 1435141216}
   doorOpenSound: {fileID: 8300000, guid: ee8923ea55cd4bb4baed776fa7fc8f41, type: 3}
   doorCloseSound: {fileID: 8300000, guid: a33c2175a81707a4ebbc344bb048ea0c, type: 3}
+  drawerOpenSound: {fileID: 8300000, guid: e67f6d3b73b104f469c18391f471714a, type: 3}
+  drawerCloseSound: {fileID: 8300000, guid: f14eac839107d6144b57befdf6cc6c42, type: 3}
 --- !u!114 &1435141218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45062,7 +45066,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 139.74
+  m_Intensity: 36.3
   m_Range: 9.8
   m_SpotAngle: 85.7917
   m_InnerSpotAngle: 61.128044
@@ -46337,6 +46341,16 @@ PrefabInstance:
       propertyPath: drawerAnimator
       value: 
       objectReference: {fileID: 855194458}
+    - target: {fileID: 2764136779064380578, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
+        type: 3}
+      propertyPath: drawerOpenSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e67f6d3b73b104f469c18391f471714a, type: 3}
+    - target: {fileID: 2764136779064380578, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
+        type: 3}
+      propertyPath: drawerCloseSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f14eac839107d6144b57befdf6cc6c42, type: 3}
     - target: {fileID: 2764136779064380578, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
         type: 3}
       propertyPath: externalAnimator
