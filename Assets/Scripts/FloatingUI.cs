@@ -23,6 +23,8 @@ public class FloatingText : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip doorOpenSound;
     public AudioClip doorCloseSound;
+    public AudioClip drawerOpenSound;
+    public AudioClip drawerCloseSound;
     string message;
 
     void Start()
@@ -154,6 +156,11 @@ public class FloatingText : MonoBehaviour
                     isDrawerOpen = true;
 
                     StartCoroutine(ScaleRectTransform(rectDrawer, Vector3.zero, 0.1f));
+
+                    if (drawerOpenSound != null && audioSource != null)
+                    {
+                        audioSource.PlayOneShot(drawerOpenSound);
+                    }
                 }
                 else
                 {
@@ -162,6 +169,11 @@ public class FloatingText : MonoBehaviour
                     isDrawerOpen = false;
 
                     StartCoroutine(ScaleRectTransform(rectDrawer, originalScale, 0.1f));
+
+                    if (drawerCloseSound != null && audioSource != null)
+                    {
+                        audioSource.PlayOneShot(drawerCloseSound);
+                    }
 
                     HideTextCanvasGroup();
                 }
@@ -180,13 +192,7 @@ public class FloatingText : MonoBehaviour
             textCanvasGroup.alpha = 1f;
             textCanvasGroup.interactable = true;
             textCanvasGroup.blocksRaycasts = true;
-
-            if (Input.GetKeyDown(KeyCode.E) && isDrawerOpen)
-            {
-
-            
-            }
-            }
+        }
         else
         {
             HideTextCanvasGroup();
