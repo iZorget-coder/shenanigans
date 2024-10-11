@@ -14,9 +14,9 @@ public class FloatingText : MonoBehaviour
     public float visibilityDistance = 2.0f;
 
     CanvasGroup textCanvasGroup;
-    public Animator externalAnimator;
+    public Animator doorAnimator, drawerAnimator;
     public TextMeshProUGUI textDisplay;
-    private bool isDoorOpen = false;
+    private bool isDoorOpen, isDrawerOpen = false;
 
     // Add the audio components for door sounds
     public AudioSource audioSource;
@@ -37,7 +37,7 @@ public class FloatingText : MonoBehaviour
             textCanvasGroup = gameObject.AddComponent<CanvasGroup>();
         }
 
-        if (externalAnimator == null)
+        if (doorAnimator == null)
         {
             Debug.LogError("No Animator assigned to FloatingText script.");
         }
@@ -62,6 +62,7 @@ public class FloatingText : MonoBehaviour
         {
             message = "drawer";
         }
+
         float distanceToPlayer = Vector3.Distance(unit.position, mainCam.position);
 
 
@@ -75,12 +76,12 @@ public class FloatingText : MonoBehaviour
                 textCanvasGroup.blocksRaycasts = true;
 
                 UpdateDoorStatusText();
-                if (Input.GetKeyDown(KeyCode.E) && externalAnimator != null)
+                if (Input.GetKeyDown(KeyCode.E) && doorAnimator != null)
                 {
                     if (!isDoorOpen)
                     {
-                        externalAnimator.SetBool("isOpening", true);
-                        externalAnimator.SetBool("isClosing", false);
+                        doorAnimator.SetBool("isOpening", true);
+                        doorAnimator.SetBool("isClosing", false);
                         isDoorOpen = true;
 
                         // Play the door open sound
@@ -91,8 +92,8 @@ public class FloatingText : MonoBehaviour
                     }
                     else
                     {
-                        externalAnimator.SetBool("isOpening", false);
-                        externalAnimator.SetBool("isClosing", true);
+                        doorAnimator.SetBool("isOpening", false);
+                        doorAnimator.SetBool("isClosing", true);
                         isDoorOpen = false;
 
                         // Play the door close sound
@@ -112,29 +113,83 @@ public class FloatingText : MonoBehaviour
                 textCanvasGroup.blocksRaycasts = false;
             }
         }
-       
 
-
-            if (gameObject.tag == "torchUI")
+        if (gameObject.tag == "drawerUI")
+        {
+            if (distanceToPlayer <= visibilityDistance)
             {
-                if (distanceToPlayer <= visibilityDistance)
-                {
-                    textCanvasGroup.alpha = 1f;
-                    textCanvasGroup.interactable = true;
-                    textCanvasGroup.blocksRaycasts = true;
+                textCanvasGroup.alpha = 1f;
+                textCanvasGroup.interactable = true;
+                textCanvasGroup.blocksRaycasts = true;
 
-                }
-                else
+                if (Input.GetKeyDown(KeyCode.E) && drawerAnimator != null)
                 {
-                    textCanvasGroup.alpha = 0f;
-                    textCanvasGroup.interactable = false;
-                    textCanvasGroup.blocksRaycasts = false;
+                    if (!isDrawerOpen)
+                    {
+                        drawerAnimator.SetBool("openDrawer", true);
+                        drawerAnimator.SetBool("closeDrawer", false);
+                        isDrawerOpen = true;
+
+                       
+                    }
+                    else
+                    {
+                        drawerAnimator.SetBool("isOpening", false);
+                        drawerAnimator.SetBool("isClosing", true);
+                        isDrawerOpen = false;
+
+                      
+                    }
+
+                  
                 }
+            }
+            else
+            {
+                textCanvasGroup.alpha = 0f;
+                textCanvasGroup.interactable = false;
+                textCanvasGroup.blocksRaycasts = false;
+            }
+        }
+
+
+        if (gameObject.tag == "torchUI")
+        {
+            if (distanceToPlayer <= visibilityDistance)
+            {
+                textCanvasGroup.alpha = 1f;
+                textCanvasGroup.interactable = true;
+                textCanvasGroup.blocksRaycasts = true;
 
             }
+            else
+            {
+                textCanvasGroup.alpha = 0f;
+                textCanvasGroup.interactable = false;
+                textCanvasGroup.blocksRaycasts = false;
+            }
+
+        }
+        if (gameObject.tag == "drawerUI")
+        {
+            if (distanceToPlayer <= visibilityDistance)
+            {
+                textCanvasGroup.alpha = 1f;
+                textCanvasGroup.interactable = true;
+                textCanvasGroup.blocksRaycasts = true;
+
+            }
+            else
+            {
+                textCanvasGroup.alpha = 0f;
+                textCanvasGroup.interactable = false;
+                textCanvasGroup.blocksRaycasts = false;
+            }
+
+        }
 
 
-        
+
 
 
         transform.LookAt(mainCam);
@@ -148,11 +203,11 @@ public class FloatingText : MonoBehaviour
     {
         if (textDisplay != null)
         {
-            if(gameObject.tag == "doorUI")
+            if (gameObject.tag == "doorUI")
             {
                 textDisplay.text = isDoorOpen ? message = "close" : message = "open";
             }
         }
-           
+
     }
 }

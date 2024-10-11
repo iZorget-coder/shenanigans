@@ -13,7 +13,7 @@ public class PlayerInteraction : MonoBehaviour
         CheckInteract();
         if (Input.GetKeyDown(KeyCode.E) && currentInteract)
         {
-            
+
         }
     }
     void CheckInteract()

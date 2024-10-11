@@ -158,7 +158,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: -0.36, y: 0.5}
+  m_Pivot: {x: -0.17, y: 0.5}
 --- !u!114 &20198399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,57 +632,57 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 855194452}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7dd96153ae42d5e47a676a1f5c66721c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 9
+      value: 0.1956522
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dd96153ae42d5e47a676a1f5c66721c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 9
+      value: 0.19565219
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dd96153ae42d5e47a676a1f5c66721c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 9
+      value: 0.1956522
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dd96153ae42d5e47a676a1f5c66721c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.65
+      value: -0.03544
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dd96153ae42d5e47a676a1f5c66721c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6081566
+      value: 0.00411
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dd96153ae42d5e47a676a1f5c66721c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.5373774
+      value: 0.0071
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dd96153ae42d5e47a676a1f5c66721c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.3443273
+      value: 0.07133869
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dd96153ae42d5e47a676a1f5c66721c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5629873
+      value: 0.19069222
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dd96153ae42d5e47a676a1f5c66721c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.60635954
+      value: 0.027967632
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dd96153ae42d5e47a676a1f5c66721c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.4436352
+      value: -0.97865474
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dd96153ae42d5e47a676a1f5c66721c,
         type: 3}
@@ -40527,8 +40527,29 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.015659617, y: 0.04075972, z: 0.010404662}
-  m_Center: {x: -0.037906874, y: 0.0082356, z: 0.008025511}
+  m_Size: {x: 0.015659621, y: 0.040543362, z: 0.010404661}
+  m_Center: {x: -0.037906878, y: 0.008343871, z: 0.008025511}
+--- !u!95 &855194458
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855194451}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71e497b2f4001054cbd306ca9212b838, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &908333120
 GameObject:
   m_ObjectHideFlags: 0
@@ -40679,7 +40700,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0.3}
   visibilityDistance: 3
-  externalAnimator: {fileID: 1881372436}
+  doorAnimator: {fileID: 1881372436}
+  drawerAnimator: {fileID: 855194458}
   textDisplay: {fileID: 1393195691}
   audioSource: {fileID: 908333122}
   doorOpenSound: {fileID: 8300000, guid: ee8923ea55cd4bb4baed776fa7fc8f41, type: 3}
@@ -42112,6 +42134,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8cf68b15f1bcbe442ad17c5e8a76cd45, type: 2}
+    - target: {fileID: -5471762529205450829, guid: d6074d0d04c29314eb05eedec7514beb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5471762529205450829, guid: d6074d0d04c29314eb05eedec7514beb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000002495078
+      objectReference: {fileID: 0}
+    - target: {fileID: -5471762529205450829, guid: d6074d0d04c29314eb05eedec7514beb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d6074d0d04c29314eb05eedec7514beb,
         type: 3}
       propertyPath: m_Name
@@ -42144,6 +42181,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1264788752}
+    - targetCorrespondingSourceObject: {fileID: -5471762529205450829, guid: d6074d0d04c29314eb05eedec7514beb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 53574741}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -7771137698230505686, guid: d6074d0d04c29314eb05eedec7514beb,
         type: 3}
@@ -42157,6 +42198,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 855194457}
+    - targetCorrespondingSourceObject: {fileID: -7771137698230505686, guid: d6074d0d04c29314eb05eedec7514beb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 855194458}
   m_SourcePrefab: {fileID: 100100000, guid: d6074d0d04c29314eb05eedec7514beb, type: 3}
 --- !u!1 &1379523184
 GameObject:
@@ -42508,7 +42553,7 @@ GameObject:
   - component: {fileID: 1435141216}
   m_Layer: 5
   m_Name: UI
-  m_TagString: torchUI
+  m_TagString: drawerUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42521,7 +42566,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435141214}
   m_LocalRotation: {x: -0.9981315, y: -0.045569766, z: -0.03958511, w: 0.009482269}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.03}
   m_LocalScale: {x: -0.005, y: -0.005, z: -0.005}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -42531,7 +42576,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -1.291, y: -184.484, z: 174.823}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.007, y: -0.005}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &1435141216
@@ -42643,8 +42688,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0.3}
-  visibilityDistance: 2
-  externalAnimator: {fileID: 1881372436}
+  visibilityDistance: 3
+  doorAnimator: {fileID: 1881372436}
+  drawerAnimator: {fileID: 855194458}
   textDisplay: {fileID: 20198399}
   audioSource: {fileID: 1435141216}
   doorOpenSound: {fileID: 8300000, guid: ee8923ea55cd4bb4baed776fa7fc8f41, type: 3}
@@ -42830,19 +42876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onInteraction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1468861089}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1468861093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42930,7 +42964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1479066112
 Transform:
   m_ObjectHideFlags: 0
@@ -43885,19 +43919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onInteraction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1695893007}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1695893015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45514,6 +45536,11 @@ PrefabInstance:
       objectReference: {fileID: 699445762}
     - target: {fileID: 2764136779064380578, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
         type: 3}
+      propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 1881372436}
+    - target: {fileID: 2764136779064380578, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
+        type: 3}
       propertyPath: doorOpenSound
       value: 
       objectReference: {fileID: 8300000, guid: ee8923ea55cd4bb4baed776fa7fc8f41, type: 3}
@@ -45522,6 +45549,11 @@ PrefabInstance:
       propertyPath: doorCloseSound
       value: 
       objectReference: {fileID: 8300000, guid: a33c2175a81707a4ebbc344bb048ea0c, type: 3}
+    - target: {fileID: 2764136779064380578, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
+        type: 3}
+      propertyPath: drawerAnimator
+      value: 
+      objectReference: {fileID: 855194458}
     - target: {fileID: 2764136779064380578, guid: 04d4cf0f2cff1e84f807f612a2275fe2,
         type: 3}
       propertyPath: externalAnimator
@@ -45691,6 +45723,5 @@ SceneRoots:
   - {fileID: 794035160}
   - {fileID: 1881372435}
   - {fileID: 1468970844}
-  - {fileID: 53574740}
   - {fileID: 935347002}
   - {fileID: 1370877303}
