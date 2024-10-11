@@ -82,7 +82,7 @@ public class ThirdPersonMovement : MonoBehaviour
         playerRotation.y += Input.GetAxis("Mouse X");
 
         // Clamp the vertical rotation (X-axis)
-        playerRotation.x = Mathf.Clamp(playerRotation.x, -50f, 50f);
+        playerRotation.x = Mathf.Clamp(playerRotation.x, -80f, 70f);
 
         // Rotate the player (Y-axis)
         transform.localRotation = Quaternion.Euler(0f, playerRotation.y, 0f);
