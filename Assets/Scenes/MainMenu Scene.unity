@@ -2229,6 +2229,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a681303772d70514c939b408cd144658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTitleCanvas: {fileID: 0}
+  storylineCanvas: {fileID: 0}
+  delayBeforeMenu: 5
 --- !u!1 &2097224113
 GameObject:
   m_ObjectHideFlags: 0
