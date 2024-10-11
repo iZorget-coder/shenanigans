@@ -42687,7 +42687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9241cdeec1ae74fa7da2a0eb99150e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0.3}
+  offset: {x: -0.11, y: 0, z: 0.3}
   visibilityDistance: 3
   doorAnimator: {fileID: 1881372436}
   drawerAnimator: {fileID: 855194458}
