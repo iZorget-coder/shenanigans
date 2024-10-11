@@ -180,7 +180,13 @@ public class FloatingText : MonoBehaviour
             textCanvasGroup.alpha = 1f;
             textCanvasGroup.interactable = true;
             textCanvasGroup.blocksRaycasts = true;
-        }
+
+            if (Input.GetKeyDown(KeyCode.E) && isDrawerOpen)
+            {
+
+            
+            }
+            }
         else
         {
             HideTextCanvasGroup();
