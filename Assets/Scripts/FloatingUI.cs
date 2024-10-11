@@ -52,10 +52,15 @@ public class FloatingText : MonoBehaviour
 
     void Update()
     {
-        textDisplay.text = message; 
-        if(gameObject.tag == "torchUI")
+        textDisplay.text = message;
+        if (gameObject.tag == "torchUI")
         {
             message = "torch";
+        }
+
+        if (gameObject.tag == "drawerUI")
+        {
+            message = "drawer";
         }
         float distanceToPlayer = Vector3.Distance(unit.position, mainCam.position);
 
