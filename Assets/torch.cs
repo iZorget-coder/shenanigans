@@ -8,11 +8,14 @@ public class torch : MonoBehaviour
     public GameObject torchSlot;
     GameObject torchObject;
     FloatingText torchScrpt;
-    public Vector3 torchPositionOffset;
+    GameObject player;
+
+    public GameObject torchLight;
     void Start()
     {
         torchScrpt = GameObject.FindGameObjectWithTag("drawerUI").GetComponent<FloatingText>();
         torchObject = GameObject.Find("torch");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -26,10 +29,13 @@ public class torch : MonoBehaviour
                 if (torchSlot != null)
             {
                 torchSlot.SetActive(!false);
-                torchObject.transform.SetParent(transform);
-                torchObject.transform.localPosition = torchPositionOffset;
-                torchObject.transform.localRotation = Quaternion.identity;
+                torchObject.transform.SetParent(player.transform);
+                torchObject.transform.localPosition = new Vector3(-1.33f, 2.56f, torchObject.transform.localPosition.z);
 
+                
+                torchObject.transform.localRotation = Quaternion.Euler(0, -90, 90);
+
+                torchLight.SetActive(true);
             }
         }
         
