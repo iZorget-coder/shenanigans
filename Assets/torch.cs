@@ -40,13 +40,16 @@ public class torch : MonoBehaviour
 
             if (hasPickedUpTorch && !isTorchOn && Input.GetKeyDown(KeyCode.C))
             {
+                torchScrpt.isDrawerOpen = true;
                 torchLight.SetActive(true);
                 isTorchOn = true;
                 torchSlotON.SetActive(true);
                 torchSlotOFF.SetActive(false);
+
             }
             else if (hasPickedUpTorch && isTorchOn && Input.GetKeyDown(KeyCode.C))
             {
+                torchScrpt.isDrawerOpen = true;
                 torchLight.SetActive(false);
                 isTorchOn = false;
                 torchSlotON.SetActive(false);

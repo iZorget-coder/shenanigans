@@ -39190,7 +39190,7 @@ MonoBehaviour:
   playerRotation: {x: 0, y: 0}
   animator: {fileID: 1486668020}
   playerBox: {fileID: 0}
-  breathingVolume: 2
+  breathingVolume: 10
   footStepsVolume: 1
   walkSound: {fileID: 8300000, guid: d5be207f96c6fda418120d73e423cacf, type: 3}
   breathingSound: {fileID: 8300000, guid: e055b7748488f584eb2b374b5f21e494, type: 3}
@@ -39662,7 +39662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &399282814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42964,6 +42964,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 330585546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1339390128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 313a3bd4a22a33146a2aa81ceab68052,
+    type: 3}
+  m_PrefabInstance: {fileID: 1940493463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1339390132
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339390128}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8088820112266266887, guid: 313a3bd4a22a33146a2aa81ceab68052, type: 3}
 --- !u!1001 &1370877303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45919,12 +45947,16 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 313a3bd4a22a33146a2aa81ceab68052,
         type: 3}
       propertyPath: m_Name
-      value: massage chair
+      value: lab chair
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 313a3bd4a22a33146a2aa81ceab68052,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1339390132}
   m_SourcePrefab: {fileID: 100100000, guid: 313a3bd4a22a33146a2aa81ceab68052, type: 3}
 --- !u!1 &1947696562
 GameObject:
