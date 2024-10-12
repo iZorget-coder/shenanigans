@@ -9,7 +9,7 @@ public class HealthSlider : MonoBehaviour
     public float maxHealth = 100f;
     public float currentplayerhealth = 100f;
     public float health;
-    private float lerpSpeed = 0.05f;
+   // private float lerpSpeed = 0.05f;
 
     [SerializeField] private Image bloodImage = null;
     [SerializeField]private Image hurtimage = null;
@@ -19,25 +19,22 @@ public class HealthSlider : MonoBehaviour
 
     private void Start()
     {
-        health = maxHealth;
+        
         currentplayerhealth = maxHealth;
-       // UpdateHealthbar(currentplayerhealth, maxHealth);
+        slider.value = 1;
+
         bloodImage.enabled = false;
     }
-    public void UpdateHealthbar(float currentValue, float maxValue)
-    {
-        slider.value = currentValue / maxValue;
-    }
+   
     void Update()
     {
-        if (slider.value != currentplayerhealth / maxHealth)
-        {
-            slider.value = Mathf.Lerp(slider.value, currentplayerhealth / maxHealth, lerpSpeed);
-        }
-        if (anxietySlider.value != slider.value)
-        {
-            anxietySlider.value = slider.value;
-        }
+        Debug.Log("Current Health: " + currentplayerhealth);
+        Debug.Log("Slider Value: " + slider.value);
+
+        slider.value = currentplayerhealth / maxHealth;
+        anxietySlider.value = slider.value;
+
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             takeDamage(10);
@@ -55,7 +52,7 @@ public class HealthSlider : MonoBehaviour
 
         // Flash hurt effect and update health bar
         StartCoroutine(HurtFlash());
-        UpdateHealthbar(currentplayerhealth, maxHealth);
+       
 
         // Update health-related UI effects like the blood splatter
         UpdateHealthEffects();
