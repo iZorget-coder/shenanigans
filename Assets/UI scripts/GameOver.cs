@@ -36,9 +36,11 @@ public class GameOver : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("SampleScene");
+        Debug.Log("Restarting");
     }
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu Scene");
+        Debug.Log("Going to main menu");
     }
 }
