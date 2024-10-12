@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -16,7 +17,7 @@ public class FloatingText : MonoBehaviour
     CanvasGroup textCanvasGroup;
     public Animator doorAnimator, drawerAnimator;
     public TextMeshProUGUI textDisplay;
-    private bool isDoorOpen, isDrawerOpen = false;
+    public bool isDoorOpen, isDrawerOpen = false;
 
     private RectTransform rectDrawer;
     private Vector3 originalScale;
@@ -27,8 +28,11 @@ public class FloatingText : MonoBehaviour
     public AudioClip drawerCloseSound;
     string message;
 
+
     void Start()
     {
+       
+       
         rectDrawer = GetComponent<RectTransform>();
         originalScale = rectDrawer.localScale;
 
@@ -151,6 +155,7 @@ public class FloatingText : MonoBehaviour
             {
                 if (!isDrawerOpen)
                 {
+                    // Open the drawer
                     drawerAnimator.SetBool("openDrawer", true);
                     drawerAnimator.SetBool("closeDrawer", false);
                     isDrawerOpen = true;
@@ -164,6 +169,7 @@ public class FloatingText : MonoBehaviour
                 }
                 else
                 {
+                    // Close the drawer
                     drawerAnimator.SetBool("openDrawer", false);
                     drawerAnimator.SetBool("closeDrawer", true);
                     isDrawerOpen = false;
@@ -178,12 +184,16 @@ public class FloatingText : MonoBehaviour
                     HideTextCanvasGroup();
                 }
             }
+
+            // Disable torchSlot when drawer is open and 'C' is pressed
+           
         }
         else
         {
             HideTextCanvasGroup();
         }
     }
+
 
     void HandleTorchInteraction(float distanceToPlayer)
     {
