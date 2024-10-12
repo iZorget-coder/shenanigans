@@ -20,8 +20,8 @@ public class HealthSlider : MonoBehaviour
     private void Start()
     {
         
-        currentplayerhealth = maxHealth;
-        slider.value = 1;
+        currentplayerhealth = 100;
+        slider.value = 100;
 
         bloodImage.enabled = false;
     }
@@ -31,7 +31,7 @@ public class HealthSlider : MonoBehaviour
         Debug.Log("Current Health: " + currentplayerhealth);
         Debug.Log("Slider Value: " + slider.value);
 
-        slider.value = currentplayerhealth / maxHealth;
+        slider.value = currentplayerhealth;
         anxietySlider.value = slider.value;
 
         

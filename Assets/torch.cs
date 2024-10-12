@@ -32,6 +32,7 @@ public class torch : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
         torchSlotON.SetActive(false);
+        torchLight.SetActive(false);  // Ensure the torch light is off at the start
 
         torchSlider.maxValue = torchDuration;
         torchSlider.value = torchDuration;
@@ -53,18 +54,18 @@ public class torch : MonoBehaviour
             HandleCooldown();
         }
 
-        if (torchScrpt.isDrawerOpen && Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             if (torchSlotOFF != null && !hasPickedUpTorch)
             {
                 PickUpTorch();
             }
 
-            if (hasPickedUpTorch && !isTorchOn && !isInCooldown && Input.GetKeyDown(KeyCode.C))
+            if (hasPickedUpTorch && !isTorchOn && !isInCooldown)
             {
                 TurnOnTorch();
             }
-            else if (hasPickedUpTorch && isTorchOn && Input.GetKeyDown(KeyCode.C))
+            else if (hasPickedUpTorch && isTorchOn)
             {
                 TurnOffTorch();
             }
@@ -89,13 +90,12 @@ public class torch : MonoBehaviour
         torchObject.transform.localPosition = new Vector3(-1.042f, -0.673f, -0.385f);
         torchObject.transform.localRotation = Quaternion.Euler(-64.679f, 119.838f, 605.537f);
         hasPickedUpTorch = true;
-        torchLight.SetActive(false);
+        torchLight.SetActive(false);  // Ensure the torch light is off when picked up
         torchSlotOFF.SetActive(false);
         torchSlotON.SetActive(true);
 
         torchSlider.gameObject.SetActive(true);
-
-        torchHintText1.gameObject.SetActive(true); 
+        torchHintText1.gameObject.SetActive(true);
     }
 
     void TurnOnTorch()
