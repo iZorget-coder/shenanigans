@@ -5,24 +5,21 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class MainMenuScreen : MonoBehaviour
 {
-    public GameObject gameTitleCanvas;  // Reference to the Game Title Canvas
+    public GameObject gameintroTitleCanvas;  // Reference to the Game Title Canvas
     public GameObject storylineCanvas;  // Reference to the Storyline Canvas
     
-    public float delayBeforeMenu = 5f;  // Delay before loading Main Menu Scene
+    public float delayBeforeMenu = 5f;
+    public float storylineDuration = 5f;
 
     private void Start()
     {
-       // gameTitleCanvas.SetActive(true);
-       // storylineCanvas.SetActive(false);
+        //gameintroTitleCanvas.SetActive(true);
+        //storylineCanvas.SetActive(false);
+
+        StartCoroutine(AutoLoadMainMenu() );
     }
 
-    public void LoadGame()
-    {
-        // Hide the Game Title Canvas and show the Storyline Canvas
-        gameTitleCanvas.SetActive(false);
-        storylineCanvas.SetActive(true);
-    }
-   
+    
 
     public void Play()
     {
@@ -36,15 +33,17 @@ public class MainMenuScreen : MonoBehaviour
         Application.Quit();
     }
 
-    public void LoadMainMenuAfterStoryline()
+    private IEnumerator AutoLoadMainMenu()
     {
-        StartCoroutine(WaitAndLoadMainMenu());
-    }
-
-    private IEnumerator WaitAndLoadMainMenu()
-    {
-        // Wait for the delay time, then load the main menu scene
+        // Wait for 3 seconds before loading the main menu
         yield return new WaitForSeconds(delayBeforeMenu);
+
+        // Hide the Game Title Canvas and show the Storyline Canvas before loading the Main Menu
+        gameintroTitleCanvas.SetActive(false);
+        storylineCanvas.SetActive(true);
+
+        // Load the Main Menu Scene after the storyline is shown
+        yield return new WaitForSeconds(storylineDuration);  // Additional delay for storyline display
         SceneManager.LoadScene("MainMenu Scene");
     }
 }
